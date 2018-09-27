@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Canvas Animation</title>
+</head>
+<body>
+  <canvas id="canvas" width="500" height="500"></canvas>
+  <script>
+    var canvas = document.getElementById("canvas")
+    var ctx = canvas.getContext("2d");
+
+    var position = 0;
+    var size = 0;
+    var time = 1;
+
+    setInterval(function () {
+      ctx.clearRect(0,0,500,500);
+      ctx.fillRect(position,0,size, size);
+
+
+
+      if (time == 2){
+        size--;
+        position++;
+      }
+      else {
+        size++;
+      }
+       position++;
+      if (position > 500) {
+        position = 0;
+      }
+      if (size > 200) {
+        time = 2;
+      }
+      if (size < 10){
+        time = 1;
+      }
+    },30);
+  </script>
+
+</body>
+</html>

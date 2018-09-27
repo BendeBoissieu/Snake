@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Canvas</title>
+</head>
+<body>
+  <canvas id="canvas" width="500" height="500"></canvas>
+  <script type="text/javascript">
+    var canvas = document.getElementById("canvas")
+   /* Recuperer l'environnement de dessin et le stocker dans une variable*/
+    var ctx = canvas.getContext("2d");
+    /*Changement de couleur avec fillStyle*/
+    ctx.fillStyle = "red";
+   /* Dessiner un carre coin haut gauche puis largeur et hauteur*/
+    ctx.fillRect(0,0,10,10);
+    for(i=0; i<10; i++){
+      ctx.fillRect(i*10, i*10, 10, 10);
+    }
+    /*drapeau bleu blanc rouge*/
+    ctx.fillStyle = "blue";
+    ctx.fillRect(0,100,50,100);
+    ctx.fillStyle = "white";
+    ctx.fillRect(50,100,50,100);
+    ctx.fillStyle = "red";
+    ctx.fillRect(100,100,50,100);
+
+    /*contour rectangle*/
+    var rect = canvas.getContext("2d");
+    rect.strokeStyle = "Lime";
+    rect.lineWidth = 4;
+    rect.strokeRect(0,250,100,20);
+    rect.fill();
+
+    /*Dessiner une ligne*/
+    lineX = canvas.getContext("2d");
+    lineX.strokeStyle = "Turquoise";
+    lineX.lineWidth = 4;
+    lineX.beginPath();
+    lineX.moveTo(300,300);
+    lineX.lineTo(350,350);
+    lineX.moveTo(350,300);
+    lineX.lineTo(300,350);
+    lineX.stroke();
+
+    /*Dessiner une triangle plein*/
+    trg = canvas.getContext("2d");
+    trg.fillStyle = "DeepPink";
+    trg.beginPath();
+    trg.moveTo(400,300);
+    trg.lineTo(500,300);
+    trg.lineTo(450,250);
+    trg.lineTo(400,300);
+    trg.fill();
+
+   /* Dessiner un arc*/
+   ctx.beginPath();
+/*   centre x y, rayon ,angle de debut, angle de fin, false=sens aiguilles montre*/
+   ctx.arc(100,0,20,0, Math.PI/2, false);
+   ctx.stroke();
+
+
+
+  </script>
+
+</body>
+</html>

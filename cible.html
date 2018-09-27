@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>cible</title>
+</head>
+<body>
+    <canvas id="canvas" width="500" height="500"></canvas>
+    <script>
+      var canvas = document.getElementById("canvas")
+      var ctx = canvas.getContext("2d");
+      var cercle = function (x,y,rayon) {
+        ctx.beginPath()
+        ctx.arc(x,y,rayon, 0, Math.PI * 2, false)
+        ctx.fill();
+      }
+
+      ctx.lineWidth = 4;
+      ctx.fillStyle = "Purple";
+      cercle(100,100,60);
+      ctx.fillStyle = "Blue";
+      cercle(100,100,50);
+      ctx.fillStyle = "Green";
+      cercle(100,100,40);
+      ctx.fillStyle = "Yellow";
+      cercle(100,100,30);
+      ctx.fillStyle = "Orange";
+      cercle(100,100,20);
+      ctx.fillStyle = "Red";
+      cercle(100,100,10);
+
+
+
+
+
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Bee</title>
+</head>
+<body>
+  <canvas id="canvas" width="500" height="500"></canvas>
+  <script>
+    var canvas = document.getElementById("canvas")
+    var ctx = canvas.getContext("2d");
+
+    var cercle = function (x,y,rayon, cerclePlein) {
+      ctx.beginPath;
+      ctx.arc(x,y,rayon,0, Math.PI * 2, false);
+
+      if (cerclePlein == true){
+        ctx.fill();
+      } else {
+        ctx.stroke();
+      }
+    };
+
+    var dessinerAbeille = function (x,y) {
+
+      ctx.lineWidth = 3;
+      ctx.strokeStyle = "Black";
+      ctx.fillStyle = "Gold";
+
+      cercle(x,y, 8, true);
+      cercle(x, y, 8, false);
+      cercle(x + 5, y - 11, 5, false);
+      cercle(x - 5, y - 11, 5, false);
+      cercle(x - 2, y - 1, 2, false);
+      cercle(x + 2, y - 1, 2, false);
+
+    };
+
+    var update = function (coordonnee) {
+     /* Nb aleatoire entre -2 et 2*/
+      var ecart = Math.random() * 40 -20;
+      coordonnee += ecart;
+      if (coordonnee > 500){
+        coordonnee = 0;
+      }
+      if (coordonnee < 0 ) {
+        coordonnee = 0;
+      }
+      return coordonnee
+    }
+    var x = 100;
+    var y = 100;
+
+    setInterval( function () {
+      ctx.clearRect(0,0,500,500);
+      ctx.beginPath();
+      dessinerAbeille(x,y);
+      x = update(x);
+      y = update (y);
+      ctx.strokeRect(0,0,500,500);
+    }
+      ,600);
+
+
+
+
+
+  </script>
+
+</body>
+</html>
